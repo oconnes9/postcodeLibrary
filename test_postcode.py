@@ -13,6 +13,8 @@ class TestPostcodes(TestCase):
 
         self.assertFalse(is_valid('XX9O Y798H')) #Tests wrong length and wrong positioning of letters/numbers
 
+        self.assertFalse(is_valid('618shH9IjP'))  # Tests wrong length and wrong positioning of letters/numbers
+
     def test_formatting(self):
         self.assertEqual(format('sw1w 0ny'), 'SW1W 0NY')  #Tests lowercase
 
@@ -27,4 +29,7 @@ class TestPostcodes(TestCase):
 
         with self.assertRaises(InvalidPostcodeError):
             format('SWTY H55')
+
+        with self.assertRaises(InvalidPostcodeError):
+            format('618shH9IjP')
 
