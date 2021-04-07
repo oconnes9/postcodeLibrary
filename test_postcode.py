@@ -21,7 +21,10 @@ class TestPostcodes(TestCase):
         self.assertEqual(format('L18 JQ'), 'L1 8JQ')      #Tests space in wrong position
 
 
-    def test_exception(self):
+    def test_exception(self):   #Tests that exception raised when attempted to format invalid postcode
         with self.assertRaises(InvalidPostcodeError):
             format('XX9O Y798H')
+
+        with self.assertRaises(InvalidPostcodeError):
+            format('SWTY H55')
 

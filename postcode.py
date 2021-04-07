@@ -9,11 +9,12 @@ def is_valid(postcode):
     return bool(match)
 
 def format(postcode):
-    postcode = postcode.upper()
-    if postcode[-4] != ' ':
-        postcode = postcode[:-3] + ' ' + postcode[-3:]
+    if not is_valid(postcode):   #Only complete steps if not already formatted
+        postcode = postcode.upper()
+        postcode = postcode.replace(" ", "")   #Reformats a postcode if the space(s) are in the correct place.
+        postcode = postcode[:-3] + ' ' + postcode[-3:]   #Adds space into correct place.
 
-    if is_valid(postcode):
-        return(postcode)
-    else:
-        raise InvalidPostcodeError
+        if not is_valid(postcode):   #If postcode is still invalid, the provided string cannot be formatted into a real postcode.
+            raise InvalidPostcodeError
+
+    return postcode
