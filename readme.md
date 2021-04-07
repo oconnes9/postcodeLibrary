@@ -4,6 +4,9 @@ Library which contains:
 * Function to format a given string into a valid UK postcode.
 * Error if the string to be formatted cannot be formatted as a UK postcode.
 
+## Using the library
+Add postcode.py to your project directory and import it to the relevant python file.
+
 ## Testing
 Run the following command:
 ```
